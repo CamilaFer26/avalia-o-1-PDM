@@ -40,11 +40,9 @@ public class AdapterView extends RecyclerView.Adapter<AdapterView.MyViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        String txt = "";
-        txt = txt.concat(list.get(position).getNome());
-        txt = txt.concat("\n\n" + list.get(position).getDescricao());
-
-        holder.txtNome.setText(txt);
+        holder.txtNome.setText(list.get(position).getNome());
+        holder.txtGrau.setText(list.get(position).getGrau());
+        holder.txtCampus.setText(list.get(position).getCampus());
         //Glide.with(holder.itemView.getContext()).load(list.get(position).getImagem()).into(holder.imgAvatar);
     }
 
@@ -55,12 +53,17 @@ public class AdapterView extends RecyclerView.Adapter<AdapterView.MyViewHolder> 
 
     class MyViewHolder extends RecyclerView.ViewHolder {
         TextView txtNome;
+        TextView txtGrau;
+        TextView txtCampus;
         ImageView imgAvatar;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             txtNome = itemView.findViewById(R.id.txtNome);
+            txtGrau = itemView.findViewById(R.id.txtGrau);
+            txtCampus = itemView.findViewById(R.id.txtCampus);
             imgAvatar = itemView.findViewById(R.id.imgAvatar);
+
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

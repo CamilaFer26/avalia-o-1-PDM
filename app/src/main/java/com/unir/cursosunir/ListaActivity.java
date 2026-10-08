@@ -39,8 +39,39 @@ public class ListaActivity extends AppCompatActivity {
         String grau = intent.getStringExtra("grau");
         boolean noturno = intent.getBooleanExtra("noturno", false);
 
+        ArrayList<Curso> adplist = new ArrayList<>();
+        if(noturno){
+            if(grau.equalsIgnoreCase("todos")){
+                for(Curso c : list){
+                    if(c.getCampus().equalsIgnoreCase(campus) && c.getTurno().equalsIgnoreCase("noturno")){
+                        adplist.add(c);
+                    }
+                }
+            }else{
+                for(Curso c : list){
+                    if(c.getCampus().equalsIgnoreCase(campus) && c.getGrau().equalsIgnoreCase(grau) && c.getTurno().equalsIgnoreCase("noturno")){
+                        adplist.add(c);
+                    }
+                }
+            }
+
+        }else if(grau.equalsIgnoreCase("todos")){
+            for(Curso c : list){
+                if(c.getCampus().equalsIgnoreCase(campus)){
+                    adplist.add(c);
+                }
+            }
+        }else{
+            for(Curso c : list){
+                if(c.getCampus().equalsIgnoreCase(campus) && c.getGrau().equalsIgnoreCase(grau)){
+                    adplist.add(c);
+                }
+            }
+        }
+
+
         recyclerView = findViewById(R.id.recyclerView);
-        AdapterView adapter = new AdapterView(list);
+        AdapterView adapter = new AdapterView(adplist);
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);

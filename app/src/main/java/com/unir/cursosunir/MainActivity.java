@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private Spinner spinnerCampus;
     private RadioGroup rdbGroup;
     private CheckBox checkbox;
-    private String[] campi = {"Ariquemes", "Porto Velho"};
+    private String[] campi = {"Ariquemes", "Cacoal","Guajará-Mirim","Ji-paraná", "Porto Velho", "Rolim de Moura", "Vilhena"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
                 String campus = campi[spinnerCampus.getSelectedItemPosition()];
                 RadioButton rdb = findViewById(rdbGroup.getCheckedRadioButtonId());
                 String grau = rdb.getText().toString();
-                boolean noturno = checkbox.isActivated();
+                boolean noturno = checkbox.isChecked();
 
                 Intent intent = new Intent(MainActivity.this, ListaActivity.class);
                 intent.putExtra("campus", campus);
