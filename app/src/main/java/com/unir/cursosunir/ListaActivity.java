@@ -1,5 +1,6 @@
 package com.unir.cursosunir;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.LinearLayout;
 
@@ -33,8 +34,13 @@ public class ListaActivity extends AppCompatActivity {
         });
 
         list = CursosData.getCursos();
+        Intent intent = getIntent();
+        String campus = intent.getStringExtra("campus");
+        String grau = intent.getStringExtra("grau");
+        boolean noturno = intent.getBooleanExtra("noturno", false);
+
         recyclerView = findViewById(R.id.recyclerView);
-        Adapter adapter = new Adapter(list);
+        AdapterView adapter = new AdapterView(list);
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);
@@ -43,7 +49,7 @@ public class ListaActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
 
-        adapter.setOnItemClickListener(new Adapter.OnItemClickListener() {
+        adapter.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
 

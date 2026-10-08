@@ -13,7 +13,7 @@ import com.unir.cursosunir.model.Curso;
 
 import java.util.ArrayList;
 
-public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
+public class AdapterView extends RecyclerView.Adapter<AdapterView.MyViewHolder> {
     private ArrayList<Curso> list;
     private OnItemClickListener listener;
 
@@ -23,7 +23,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
         void onItemLongClick(int position);
     }
 
-    public Adapter(ArrayList<Curso> list) {
+    public AdapterView(ArrayList<Curso> list) {
         this.list = list;
     }
 
