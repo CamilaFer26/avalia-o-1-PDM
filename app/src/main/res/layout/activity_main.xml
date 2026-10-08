@@ -5,89 +5,172 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#002D62"
+    android:backgroundTint="#002D62"
     tools:context=".MainActivity">
 
-    <LinearLayout
-        android:layout_width="409dp"
-        android:layout_height="729dp"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="1dp">
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/fundoapp" />
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="231dp"
-            android:layout_height="175dp"
-            android:layout_gravity="center"
-            app:srcCompat="@drawable/logo_unir_horizontal" />
+    <LinearLayout
+        android:layout_width="369dp"
+        android:layout_height="444dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="215dp"
+        android:layout_marginEnd="22dp"
+        android:layout_marginBottom="84dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:fontFamily="@font/andada_pro"
             android:gravity="center"
-            android:text="Conheça os cursos da UNIR" />
+            android:text="Conheça os cursos da UNIR"
+            android:textColorLink="#050505"
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/textView"
-            android:layout_width="match_parent"
+            android:layout_width="267dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:fontFamily="@font/andada_pro"
             android:gravity="center"
-            android:text="Explores os cursos de graduação da Universidade Federal de Rondônia" />
+            android:text="Explores os cursos de graduação da Universidade Federal de Rondônia"
+            android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/textView2"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Campus" />
+            android:layout_height="35dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="36dp"
+                android:layout_height="25dp"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/university" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="331dp"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/andada_pro"
+                android:gravity="center_vertical"
+                android:text="Campus"
+                android:textStyle="bold" />
+        </LinearLayout>
 
         <Spinner
             android:id="@+id/spinnerCampus"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-        <TextView
-            android:id="@+id/textView3"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Grau" />
+            android:layout_height="45dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imageView6"
+                android:layout_width="29dp"
+                android:layout_height="31dp"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/mortarboard" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="330dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|center_vertical"
+                android:fontFamily="@font/andada_pro"
+                android:text="Grau"
+                android:textStyle="bold" />
+        </LinearLayout>
 
         <RadioGroup
             android:id="@+id/radioGroup"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="142dp">
 
             <RadioButton
                 android:id="@+id/radioButton1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Todos" />
+                android:fontFamily="@font/andada_pro"
+                android:text="Todos"
+                android:textStyle="bold" />
 
             <RadioButton
                 android:id="@+id/radioButton2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Bacharelado" />
+                android:fontFamily="@font/andada_pro"
+                android:text="Bacharelado"
+                android:textStyle="bold" />
 
             <RadioButton
                 android:id="@+id/radioButton3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Licenciatura" />
+                android:fontFamily="@font/andada_pro"
+                android:text="Licenciatura"
+                android:textStyle="bold" />
+
+        </RadioGroup>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="34dp"
+                android:layout_height="27dp"
+                android:layout_gravity="center|center_horizontal"
+                android:foregroundGravity="center"
+                android:foregroundTint="#002D62"
+                android:scaleType="fitStart"
+                app:srcCompat="@drawable/night" />
 
             <CheckBox
                 android:id="@+id/checkBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Somente cursos noturnos" />
+                android:layout_width="330dp"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/andada_pro"
+                android:text="Somente cursos noturnos"
+                android:textStyle="bold" />
+        </LinearLayout>
 
-            <Button
-                android:id="@+id/button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Ver cursos" />
-        </RadioGroup>
+        <Button
+            android:id="@+id/button"
+            android:layout_width="293dp"
+            android:layout_height="62dp"
+            android:layout_gravity="center"
+            android:backgroundTint="#002D62"
+            android:fontFamily="@font/andada_pro"
+            android:text="Ver cursos"
+            android:textStyle="bold"
+            app:icon="@drawable/search"
+            app:iconPadding="1dp" />
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
