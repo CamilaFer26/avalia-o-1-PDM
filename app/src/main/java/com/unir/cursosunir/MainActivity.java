@@ -1,5 +1,6 @@
 package com.unir.cursosunir;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -39,13 +40,17 @@ public class MainActivity extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String campus = campi[spinnerCampus.getSelectedItemPosition()];
+                //String campus = campi[spinnerCampus.getSelectedItemPosition()];
                 RadioButton rdb = findViewById(rdbGroup.getCheckedRadioButtonId());
-                
+                String grau = rdb.getText().toString();
+                boolean noturno = checkbox.isActivated();
+
+                Intent intent = new Intent(MainActivity.this, ListaActivity.class);
+                //intent.putExtra("campus", campus);
+                intent.putExtra("grau", grau);
+                intent.putExtra("noturno", noturno);
+                startActivity(intent);
             }
         });
-
     }
-
-
 }
