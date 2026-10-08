@@ -1,6 +1,8 @@
 package com.unir.cursosunir.model;
 
-public class Curso {
+import java.io.Serializable;
+
+public class Curso implements Serializable{
 
     private String nome;
     private String campus;

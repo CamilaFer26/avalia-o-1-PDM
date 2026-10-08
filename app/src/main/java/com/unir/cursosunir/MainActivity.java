@@ -3,6 +3,7 @@ package com.unir.cursosunir;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.RadioButton;
@@ -20,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private Spinner spinnerCampus;
     private RadioGroup rdbGroup;
     private CheckBox checkbox;
-    private String[] campi = {};
+    private String[] campi = {"Ariquemes", "Cacoal","Guajará-Mirim","Ji-paraná", "Porto Velho", "Rolim de Moura", "Vilhena"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,19 +35,23 @@ public class MainActivity extends AppCompatActivity {
 
         btn = findViewById(R.id.button);
         spinnerCampus = findViewById(R.id.spinnerCampus);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, campi);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item) ;
+        spinnerCampus.setAdapter(adapter);
+
         rdbGroup = findViewById(R.id.radioGroup);
         checkbox = findViewById(R.id.checkBox);
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //String campus = campi[spinnerCampus.getSelectedItemPosition()];
+                String campus = campi[spinnerCampus.getSelectedItemPosition()];
                 RadioButton rdb = findViewById(rdbGroup.getCheckedRadioButtonId());
                 String grau = rdb.getText().toString();
-                boolean noturno = checkbox.isActivated();
+                boolean noturno = checkbox.isChecked();
 
                 Intent intent = new Intent(MainActivity.this, ListaActivity.class);
-                //intent.putExtra("campus", campus);
+                intent.putExtra("campus", campus);
                 intent.putExtra("grau", grau);
                 intent.putExtra("noturno", noturno);
                 startActivity(intent);

@@ -12,8 +12,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.unir.cursosunir.model.Curso;
 
 import java.util.ArrayList;
-
-public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
+import com.bumptech.glide.Glide;
+public class AdapterView extends RecyclerView.Adapter<AdapterView.MyViewHolder> {
     private ArrayList<Curso> list;
     private OnItemClickListener listener;
 
@@ -23,7 +23,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
         void onItemLongClick(int position);
     }
 
-    public Adapter(ArrayList<Curso> list) {
+    public AdapterView(ArrayList<Curso> list) {
         this.list = list;
     }
 
@@ -40,12 +40,10 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        String txt = "";
-        txt = txt.concat(list.get(position).getNome());
-        txt = txt.concat("\n\n" + list.get(position).getDescricao());
-
-        holder.txtNome.setText(txt);
-        //Glide.with(holder.itemView.getContext()).load(list.get(position).getImagem()).into(holder.imgAvatar);
+        holder.txtNome.setText(list.get(position).getNome());
+        holder.txtGrau.setText(list.get(position).getGrau());
+        holder.txtCampus.setText(list.get(position).getCampus());
+        Glide.with(holder.itemView.getContext()).load(list.get(position).getImagem()).into(holder.imgAvatar);
     }
 
     @Override
@@ -55,12 +53,17 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
 
     class MyViewHolder extends RecyclerView.ViewHolder {
         TextView txtNome;
+        TextView txtGrau;
+        TextView txtCampus;
         ImageView imgAvatar;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             txtNome = itemView.findViewById(R.id.txtNome);
+            txtGrau = itemView.findViewById(R.id.txtGrau);
+            txtCampus = itemView.findViewById(R.id.txtCampus);
             imgAvatar = itemView.findViewById(R.id.imgAvatar);
+
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -70,19 +73,6 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
                             listener.onItemClick(position);
                         }
                     }
-                }
-            });
-            itemView.setOnLongClickListener(new View.OnLongClickListener() {
-                @Override
-                public boolean onLongClick(View view) {
-                    if (listener != null) {
-                        int position = getAbsoluteAdapterPosition();
-                        if (position != RecyclerView.NO_POSITION) {
-                            listener.onItemLongClick(position);
-                            return true;
-                        }
-                    }
-                    return false;
                 }
             });
         }
