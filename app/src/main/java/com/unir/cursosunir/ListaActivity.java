@@ -83,7 +83,9 @@ public class ListaActivity extends AppCompatActivity {
         adapter.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
-
+                Intent intent = new Intent(ListaActivity.this, InfoActivity.class);
+                intent.putExtra("curso_data", adplist.get(position));
+                startActivity(intent);
             }
 
             @Override

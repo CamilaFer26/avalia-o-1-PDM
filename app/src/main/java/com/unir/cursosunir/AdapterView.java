@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.unir.cursosunir.model.Curso;
 
 import java.util.ArrayList;
-
+import com.bumptech.glide.Glide;
 public class AdapterView extends RecyclerView.Adapter<AdapterView.MyViewHolder> {
     private ArrayList<Curso> list;
     private OnItemClickListener listener;
@@ -43,7 +43,7 @@ public class AdapterView extends RecyclerView.Adapter<AdapterView.MyViewHolder> 
         holder.txtNome.setText(list.get(position).getNome());
         holder.txtGrau.setText(list.get(position).getGrau());
         holder.txtCampus.setText(list.get(position).getCampus());
-        //Glide.with(holder.itemView.getContext()).load(list.get(position).getImagem()).into(holder.imgAvatar);
+        Glide.with(holder.itemView.getContext()).load(list.get(position).getImagem()).into(holder.imgAvatar);
     }
 
     @Override
@@ -73,19 +73,6 @@ public class AdapterView extends RecyclerView.Adapter<AdapterView.MyViewHolder> 
                             listener.onItemClick(position);
                         }
                     }
-                }
-            });
-            itemView.setOnLongClickListener(new View.OnLongClickListener() {
-                @Override
-                public boolean onLongClick(View view) {
-                    if (listener != null) {
-                        int position = getAbsoluteAdapterPosition();
-                        if (position != RecyclerView.NO_POSITION) {
-                            listener.onItemLongClick(position);
-                            return true;
-                        }
-                    }
-                    return false;
                 }
             });
         }
